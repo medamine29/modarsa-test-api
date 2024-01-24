@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../configs/database';
 
 export interface IWriteClient {
-  name?: string;
+  name: string;
 }
 
 class Client extends Model {

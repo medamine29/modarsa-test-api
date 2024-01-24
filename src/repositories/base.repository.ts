@@ -15,6 +15,10 @@ class Repository<T extends Model> {
     return this.model.findAll();
   }
 
+  async findById(id: number): Promise<Model<T, any> | null>  {
+    return this.model.findByPk(id)
+  }
+
 }
 
 export default Repository;
