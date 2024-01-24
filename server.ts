@@ -5,7 +5,8 @@ import cors from 'cors'
 import errorHandler from './src/middlewares/error.middleware'
 import { clientRouter } from './src/routes/client.routes'
 import { staffMemberRouter } from './src/routes/staff-member.routes'
-
+import { appointmentRouter } from "./src/routes/appointment.routes"
+ 
 dotenv.config()
 const port = process.env.PORT || 3000
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 // routes
 app.use('/clients', clientRouter)
 app.use('/staff-members', staffMemberRouter)
+app.use('/appointments', appointmentRouter)
 
 // Error handler
 app.use(errorHandler)

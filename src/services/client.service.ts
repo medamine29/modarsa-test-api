@@ -1,11 +1,16 @@
 import ClientRepository from '../repositories/client.repository';
-import Client, { IWriteClient } from '../models/client.model';
+import { IWriteClient } from '../models/client.model';
 
 class ClientService {
   private clientRepository = ClientRepository;
 
   async findClientByName(name: string) {
     const client = await this.clientRepository.findByName(name);
+    return client
+  }
+
+  async findClientById(id: number) {
+    const client = await this.clientRepository.findById(id);
     return client
   }
 
