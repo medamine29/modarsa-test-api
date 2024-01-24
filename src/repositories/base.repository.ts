@@ -11,7 +11,7 @@ class Repository<T extends Model> {
     return this.model.create(data);
   }
 
-  async findAll(id: number): Promise<Model<T, any>[]> {
+  async findAll(): Promise<Model<T, any>[]> {
     return this.model.findAll();
   }
 

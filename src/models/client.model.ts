@@ -1,6 +1,10 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../configs/database';
 
+export interface IWriteClient {
+  name?: string;
+}
+
 class Client extends Model {
   public id!: number;
   public name!: string;

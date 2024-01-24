@@ -1,11 +1,22 @@
 import ClientRepository from '../repositories/client.repository';
+import Client, { IWriteClient } from '../models/client.model';
 
 class ClientService {
   private clientRepository = ClientRepository;
 
-  async findClient(name: string) {
+  async findClientByName(name: string) {
     const client = await this.clientRepository.findByName(name);
     return client
+  }
+
+  async createClient(client: IWriteClient) {
+    const createdClient = await this.clientRepository.create(client)
+    return createdClient
+  }
+
+  async getAllClients() {
+    const clients = this.clientRepository.findAll()
+    return clients
   }
 
 }
