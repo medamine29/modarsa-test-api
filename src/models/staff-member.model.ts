@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../configs/database';
+import { STAFF_MEMBER } from '../constants/database.constant';
 
 export interface IWriteStaffMember {
   firstname: string;
@@ -30,8 +31,8 @@ StaffMember.init(
   },
   {
     sequelize,
-    modelName: 'StaffMember',
-    tableName: 'staff_members',
+    modelName: STAFF_MEMBER.model,
+    tableName: STAFF_MEMBER.table,
     timestamps: false
   }
 );

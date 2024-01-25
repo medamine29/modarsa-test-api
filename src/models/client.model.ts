@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../configs/database';
+import { CLIENT } from "../constants/database.constant"
 
 export interface IWriteClient {
   name: string;
@@ -24,8 +25,8 @@ Client.init(
   },
   {
     sequelize,
-    modelName: 'Client',
-    tableName: 'clients',
+    modelName: CLIENT.model,
+    tableName: CLIENT.table,
     timestamps: false
   }
 );

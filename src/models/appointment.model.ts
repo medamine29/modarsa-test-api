@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../configs/database';
 import Client from './client.model';
 import StaffMember from './staff-member.model';
-
+import { APPOINTMENT, STAFF_MEMBER, CLIENT } from '../constants/database.constant';
 export interface IWriteAppointment {
   startTime: Date;
   endTime: Date;
@@ -37,7 +37,7 @@ Appointment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Client',
+        model: CLIENT.model,
         key: 'id',
       },
     },
@@ -45,15 +45,15 @@ Appointment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'StaffMember',
+        model: STAFF_MEMBER.model,
         key: 'id',
       },
     },
   },
   {
     sequelize,
-    modelName: 'Appointment',
-    tableName: 'appointments',
+    modelName: APPOINTMENT.model,
+    tableName: APPOINTMENT.table,
     timestamps: false,
   }
 );
